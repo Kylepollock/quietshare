@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    My Site - Home
+{% endblock title %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Quiet Share</h1>
+  <p class="lead">Send a file or text to yourself or another user</p>
+  <hr class="my-4">
+  <p>Edit this to include your content.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'about' %}" role="button">Learn more</a>
+  </p>
+</div>
+
+<form action="." method="POST">
+    <div class="card-body">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success btn-lg">Register!</button>
+    </div>
+</form>
+
+{% endblock content %}
