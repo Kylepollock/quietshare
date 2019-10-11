@@ -1,69 +1,88 @@
-This service leverages the file.io api in order to provide a mechanism where a user can send a file or text to another user on the service. The sending part of this is done without logging in to any system.
+# Quietshare
 
+This project is a file sharing application that does not require a login. A user must create an account to receive files. Only users with accounts can receive files. All generated links will be deleted in 7 days. This is currently using the WeTransfer API for link generation.
 
+## Getting Quietshare
 
+You can grab quietshare by 
 
+### Prerequisites
 
-### File structure
+What things you need to install the software and how to install them
 
-Directory structure description below:
-
-```python
-[name_of_project]/
-    - config/
-        - base.py          # Stores most settings
-        - local.py         # Stores settings only for local dev
-        - production.py    # Stores settings only used by production (e.g. Heroku)
-    - urls.py              # Global urls.py, in turn includes urls.py in apps
-
-- apps/                    # A directory to store all our custom apps
-    - accounts/            # An example custom app that includes sign-up and log-in
-        - models.py        # Customized user class is here
-        - urls.py          # URLs for sign-up and log-in pages
-        - views.py         # Views for sign-up and log-in pages
-        - forms.py         # Form for editing user profile, sign-up
-        - templates/       # Templates for user profile stuff
-    - core/                # An example custom app that has some static pages
-        - static/          # Static files
-        - templates/       # Core templates, including base templates
-        - etc
-- manage.py                # Entry point
-- Pipfile                  # Development requirements
+```
+npm install 
 ```
 
+### Installing
 
+A step by step series of examples that tell you how to get a development env running
 
-## Going further
+Say what the step will be
 
-### Mailgun-powered email
+```
+Give the example
+```
 
-Add env variables to Heroku as such:
-    * MAILGUN_API_KEY
-    * MAILGUN_DOMAIN
+And repeat
 
-Then, add the following to your production.py:
+```
+until finished
+```
 
-    # Anymail (Mailgun)
-    # ------------------------------------------------------------------------------
-    # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
-    INSTALLED_APPS += ['anymail']  # noqa F405
-    EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
-    # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
-    ANYMAIL = {
-        'MAILGUN_API_KEY': env('MAILGUN_API_KEY'),
-        'MAILGUN_SENDER_DOMAIN': env('MAILGUN_DOMAIN')
-    }
+End with an example of getting some data out of the system or using it for a little demo
 
+## Running the tests
 
-### AWS S3
+Explain how to run the automated tests for this system
 
-AWS S3 is great for handling uploaded files. Typically, this is exactly what
-you need: AWS supports as many and as large of files that your users might want
-to upload.
+### Break down into end to end tests
 
-- Use AWS:
-    - Setup AWS and get your keys (follow this guide:
-        https://devcenter.heroku.com/articles/s3#s3-setup)
-    - Configure your keys using heroku config:add for each of the
-        AWS settings specified by config/settings/production.py
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
 
