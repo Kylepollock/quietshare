@@ -4,7 +4,6 @@ This project is a file sharing application that does not require a login. A user
 
 ## Getting Quietshare
 
-You can grab quietshare by 
 
 ### Prerequisites
 
@@ -61,12 +60,4 @@ Put up QuietShare on localhost
 Run "python manage.py runserver" to run the Django Python server itself
 ```
 
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
